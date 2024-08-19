@@ -3,3 +3,31 @@
 @tailwind utilities;
 
 /*Add CSS here as required*/
+
+@layer base{
+
+    .remove-scrollbar::-webkit-scrollbar {
+        width: 0px;
+        height: 0px;
+        border-radius: 0px;
+    }
+
+    .remove-scrollbar::-webkit-scrollbar-thumb {
+        background: transparent;
+    }
+
+    .remove-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .remove-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: transparent;
+    }
+}
+
+@layer utilities{
+
+    .side-img{
+        @apply hidden h-full object-cover md:block rounded-l-3xl
+    }
+}
