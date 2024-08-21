@@ -9,7 +9,7 @@ import Image from "next/image";
 // Add custom css for shad -input
 interface CustomProps{
     control: Control<any>
-    fieldType: FormFieldType.INPUT
+    fieldType: FormFieldType
     name:string
     label?:string
     placeholder?:string
@@ -23,25 +23,34 @@ interface CustomProps{
 }
 
 const RenderInput=({field, props} : {field: any; props : CustomProps })=>{
-  switch (props.fieldType) {
-      case FormFieldType.INPUT:
-          return (
-              <div className="flex rounded-md border border-dark-500 bg-dark-400">
-                  {props.iconSrc && (
-                      <Image src={props.iconSrc} height={24} width={24} alt="user" className="ml-12"/>
-                  )}
+    switch (props.fieldType) {
+        case FormFieldType.INPUT:
+            return (
+                <div className="flex rounded-md border border-dark-500 bg-dark-400">
+                    {props.iconSrc && (
+                        <Image
+                            src={props.iconSrc}
+                            height={24}
+                            width={24}
+                            alt={props.iconAlt || "icon"}
+                            className="ml-2"
+                        />
+                    )}
+                    <FormControl>
+                        <Input
+                            placeholder={props.placeholder}
+                            {...field}
+                            className="shad-input border-0"
+                        />
+                    </FormControl>
+                </div>
+            );
 
+        case  FormFieldType.PHONE_INPUT:
+    //         create custom form here
 
-                  <FormControl>
-                      <Input
-                        placeholder={props.placeholder}
-                        {...field}
-                          className="shad-input border-0"
-                      />
-                  </FormControl>
-              </div>
-          )
-  }
+    }
+
 }
 const CustomForm=(props:CustomProps) =>{
     const {control,fieldType,name,label} = props

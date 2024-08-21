@@ -9,7 +9,7 @@ export default function Login() {
         // basic login page with login form
         <div className="flex h-screen max-h-screen">
        {/*     center the section vertically*/}
-       <section className="my-auto container">
+       <section className="my-auto container m-20">
            {/*custom tailwind to remove scrollbar and add a max width of the logo*/}
            <div className=" remove-scrollbar max-w=[500px]">
                <Image
@@ -24,7 +24,7 @@ export default function Login() {
            <PatientForm/>
 
            {/*Footer here*/}
-           <div className="text-14-regular">
+           <div className="text-14-regular mt-20 flex justify-between">
                <p className="justify-items-end text-dark-600 xl:text-left">
                 &copy; HealthApp
                </p>
