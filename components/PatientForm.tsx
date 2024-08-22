@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Form} from "@/components/ui/form"
 import CustomForm from "@/components/CustomForm";
 
+
 export enum FormFieldType {
     INPUT ='input',
     TEXTAREA = 'textArea',
@@ -45,7 +46,7 @@ const  PatientForm = () => {
     }
     return(
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-[480px]">
                 <CustomForm
                     fieldType={FormFieldType.INPUT}
                     control={form.control}
@@ -64,8 +65,6 @@ const  PatientForm = () => {
                     iconSrc="/assets/icons/email.svg"
                     iconAlt='mail'
                 />
-
-
                 <CustomForm
                     fieldType={FormFieldType.PHONE_INPUT}
                     control={form.control}

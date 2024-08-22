@@ -4,6 +4,9 @@ import {Control} from "react-hook-form";
 import {FormFieldType} from "@/components/PatientForm";
 import {Input} from "@/components/ui/input";
 import Image from "next/image";
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
+import {E164Number} from "libphonenumber-js";
 
 
 // Add custom css for shad -input
@@ -26,7 +29,7 @@ const RenderInput=({field, props} : {field: any; props : CustomProps })=>{
     switch (props.fieldType) {
         case FormFieldType.INPUT:
             return (
-                <div className="flex rounded-md border border-dark-500 bg-dark-400">
+                <div className="flex rounded-md border border-dark-500 bg-dark-400 ">
                     {props.iconSrc && (
                         <Image
                             src={props.iconSrc}
@@ -46,8 +49,20 @@ const RenderInput=({field, props} : {field: any; props : CustomProps })=>{
                 </div>
             );
 
-        case  FormFieldType.PHONE_INPUT:
-    //         create custom form here
+        case FormFieldType.PHONE_INPUT:
+            return (
+                <FormControl>
+                    <PhoneInput
+                        defaultCountry="IN"
+                        placeholder={props.placeholder}
+                        international
+                        withCountryCallingCode
+                        value={field.value as E164Number | undefined}
+                        onChange={field.onChange}
+                        className="input-phone"
+                    />
+                </FormControl>
+            );
 
     }
 
