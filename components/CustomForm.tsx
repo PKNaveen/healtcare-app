@@ -26,6 +26,7 @@ interface CustomProps{
 }
 
 const RenderInput=({field, props} : {field: any; props : CustomProps })=>{
+    // base on the field type we have to create custom form fields
     switch (props.fieldType) {
         case FormFieldType.INPUT:
             return (
